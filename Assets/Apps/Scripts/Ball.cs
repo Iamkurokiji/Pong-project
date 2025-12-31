@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public GameManager gameManager;
     public Rigidbody2D rb2d;
     public float maxInitialAngle = 0.67f;
     public float movSpeed = 1f;
@@ -38,7 +39,8 @@ public class Ball : MonoBehaviour
         ScoreZoneScript scoreZone = collision.GetComponent<ScoreZoneScript>(); //Scriptname variable = collision.GetComponent<scriptname>();
         if(scoreZone)
         {
-             UnityEngine.Debug.Log("Scored!");
+            gameManager.OnScoreZoneReached(scoreZone.id);
+            //  UnityEngine.Debug.Log("Scored!");
              ResetBall();
              Start();
         }

@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class ScoreZoneScript : MonoBehaviour
+public class ScoreText : MonoBehaviour
 {
-    public int id;
+    public TextMeshProUGUI Text;
     // Start is called before the first frame update
+
+    public void SetScore(int value)
+    {
+        Text.text = value.ToString();
+    }
     void Start()
     {
         
